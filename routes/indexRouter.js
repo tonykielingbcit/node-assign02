@@ -9,7 +9,7 @@ indexRouter.get("/about", (req, res) => res.render("about"));
 
 indexRouter.get("/contact", (req, res) => res.render("contact"));
 
-indexRouter.get("*", (req, res) => res.render("error", { errorMessage: "No page has been found."}));
+indexRouter.get("*", (req, res) => res.status(404).render("error", { errorMessage: "No page has been found."}));
 
 
 // POST method route

@@ -13,7 +13,7 @@ profilesRouter.get("/:id", (req, res) => {
       // check whether id is valid and errors if it is not
       const person = profilesJson.filter(e => e.id === id)[0];
       if (!person) {
-        res.render("error", { errorMessage: "No profile has been found."})
+        res.status(404).render("error", { errorMessage: "No profile has been found."})
         return;
       }
       
