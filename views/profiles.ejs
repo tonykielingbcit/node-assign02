@@ -1,0 +1,11 @@
+
+<section class="profiles-page">
+    <h1><%= title %></h1> 
+    <div class="profiles-list">
+        <ul class="no-disc">
+            <% for (let i = 0; i < profiles.length; i++) { %>
+            <li><a href="../profiles/<%= profiles[i].id%>"><%= profiles[i].name%></a></li>
+            <% } %>
+        </ul>
+    </div>
+</section>
