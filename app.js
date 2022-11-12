@@ -29,8 +29,8 @@ app.set("layout", "./layouts/full-width");
 
 
 // call the routes
-app.use("/api/profiles", apiProfilesRouter);
 app.use("/profiles", profilesRouter);
+app.use("/api/profiles", apiProfilesRouter);
 app.use(indexRouter);
 
 

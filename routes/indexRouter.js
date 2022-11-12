@@ -3,18 +3,30 @@ const indexRouter = express.Router();
 
 
 // GET method routes
-indexRouter.get("/", (req, res) => res.render("index"));
+indexRouter.get("/", (req, res) => res.render("index", {
+    title: "Express Yourself - Home",
+}));
 
-indexRouter.get("/about", (req, res) => res.render("about"));
+indexRouter.get("/about", (req, res) => res.render("about", {
+    title: "Express Yourself - About",
+}));
 
-indexRouter.get("/contact", (req, res) => res.render("contact"));
+indexRouter.get("/contact", (req, res) => res.render("contact", {
+    title: "Express Yourself - Contact",
+}));
 
-indexRouter.get("*", (req, res) => res.status(404).render("error", { errorMessage: "No page has been found."}));
+indexRouter.get("*", (req, res) => res.status(404).render("error", { 
+    title: "Express Yourself - Error",
+    errorMessage: "No page has been found."
+}));
 
 
 // POST method route
 indexRouter.post("/contact", (req, res) => {
-    res.render("contact", {message: "We've received your message. Thank you!"});
+    res.render("contact", {
+        title: "Express Yourself - Contact",
+        message: "We've received your message. Thank you!"
+    });
 });
 
 module.exports = indexRouter;
