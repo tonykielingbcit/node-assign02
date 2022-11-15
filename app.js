@@ -5,7 +5,7 @@ const path = require("path");
 const expressLayouts = require("express-ejs-layouts");
 
 // Use environment variable if defined, or a fixed value if not.
-const PORT = process.env.PORT || 3003;
+const PORT = process.env.PORT || 3333;
 
 // morgan is set ON
 app.use(logger("combined"));
