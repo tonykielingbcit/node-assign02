@@ -3,6 +3,22 @@ const fs = require("fs").promises;
 const express = require("express");
 const apiProfilesRouter = express.Router();
 
+apiProfilesRouter.get("/quotes", (req, res) => {
+  fs.readFile(path.join(__dirname, "../data/quotes.json"))
+    .then((contents) => {
+      console.log(contents);
+      // need to parse the raw buffer as json if we want to work with it
+      const quotesJSON = JSON.parse(contents);
+      console.log(quotesJSON);
+      //   prepare and send an OK response
+      res.json(quotesJSON);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.writeHead(500);
+      res.end("Error");
+    });
+});
 
 apiProfilesRouter.get("/", (req, res) => {
   const id = req.params.id;
