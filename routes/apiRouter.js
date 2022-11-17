@@ -20,7 +20,7 @@ apiProfilesRouter.get("/quotes", (req, res) => {
     });
 });
 
-apiProfilesRouter.get("/", (req, res) => {
+apiProfilesRouter.get("/profiles", (req, res) => {
   const id = req.params.id;
   fs.readFile(path.join(__dirname, "../data/profiles.json"))
   .then((contents) => {
@@ -36,7 +36,7 @@ apiProfilesRouter.get("/", (req, res) => {
   });
 });
 
-apiProfilesRouter.get("/:id", (req, res) => {
+apiProfilesRouter.get("/profiles/:id", (req, res) => {
   const id = req.params.id;
   fs.readFile(path.join(__dirname, "../data/profiles.json"))
   .then((contents) => {

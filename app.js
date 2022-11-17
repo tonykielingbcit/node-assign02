@@ -3,12 +3,15 @@ const app = express();
 const logger = require('morgan');
 const path = require("path");
 const expressLayouts = require("express-ejs-layouts");
+const cors = require("cors");
 
 // Use environment variable if defined, or a fixed value if not.
-const PORT = process.env.PORT || 3333;
+const PORT = process.env.PORT || 3003;
 
 // morgan is set ON
 app.use(logger("combined"));
+
+app.use(cors());
 
 
 // get the routes
@@ -30,7 +33,7 @@ app.set("layout", "./layouts/full-width");
 
 // call the routes
 app.use("/profiles", profilesRouter);
-app.use("/api/profiles", apiProfilesRouter);
+app.use("/api", apiProfilesRouter);
 app.use(indexRouter);
 
 
